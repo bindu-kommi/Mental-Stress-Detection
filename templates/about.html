@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Stocker - Stock Market Website Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="/static/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="/static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="/static/css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+
+        <!-- Topbar Start -->
+        
+        <!-- Topbar End -->
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="{{url_for('index')}}" class="nav-item nav-link">Home</a>
+                        <a href="{{url_for('about')}}" class="nav-item nav-link active">About</a>
+                        <a href="{{url_for('registration')}}" class="nav-item nav-link">Registration</a>
+                        <a href="{{url_for('login')}}" class="nav-item nav-link">Login</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Header Start -->
+            <div class="container-fluid bg-breadcrumb">
+                <div class="container text-center py-5" style="max-width: 900px;">
+                    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">About The Project</h4>   
+                </div>
+            </div>
+            <!-- Header End -->
+        </div>
+        <!-- Navbar & Hero End -->
+
+
+        <!-- Abvout Start -->
+        <div class="container-fluid about py-5">
+            <div class="container py-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
+                        <div>
+                            <h4 class="text-primary">About The Project Of</h4>
+                            <h1 class="display-5 mb-4" align="justify">Machine Learning Based Assessment of Mental Stress using Wearable Sensor Data</h1>
+                            <div class="row g-4">
+                                <div class="col-md-6 col-lg-6 col-xl-6">
+                                    <div class="d-flex">
+                                        <div><i class="bi bi-bookmark-heart-fill fa-3x text-primary"></i></div>
+                                        <div class="ms-4">
+                                            <h4>Healthcare Monitoring and Intervention</h4>
+                                            <p align="justify">Real-time Stress Monitoring: Wearable devices can continuously monitor physiological signals (heart rate, skin temperature, etc.) and provide real-time assessment of an individual's stress levels. This can help in early detection of stress-related disorders and prompt intervention.</p>
+                                            <p align="justify">Personalized Stress Management: By analyzing data over time, machine learning models can offer personalized insights and recommendations for managing stress, like suggesting relaxation exercises, physical activities, or meditation.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-6">
+                                    <div class="d-flex">
+                                        <div><i class="bi bi-bookmark-heart-fill fa-3x text-primary"></i></div>
+                                        <div class="ms-4">
+                                            <h4>Workplace Wellness Programs</h4>
+                                            <p align="justify">Employee Well-being: Companies can implement these systems to monitor the stress levels of employees. By detecting elevated stress in real time, employers can offer support, adjust workloads, or initiate wellness programs to reduce workplace stress.</p>
+                                            <p align="justify">Productivity Optimization: Understanding employees’ stress patterns can help employers design better work schedules or identify high-stress periods where productivity might decrease, allowing for better workload management.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-6">
+                                    <div class="d-flex">
+                                        <div><i class="bi bi-bookmark-heart-fill fa-3x text-primary"></i></div>
+                                        <div class="ms-4">
+                                            <h4>Mental Health Applications</h4>
+                                            <p align="justify">Therapy Assistance: Mental health professionals can use data-driven insights from wearable sensors to better understand a patient’s stress patterns, improve diagnosis, and provide personalized treatment options for anxiety, depression, or chronic stress.</p>
+                                            <p align="justify">Preventive Care: Early detection of high stress levels can help in preventing more serious mental health conditions, such as anxiety or burnout, enabling early intervention and reducing the need for more intensive treatment.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-6">
+                                    <div class="d-flex">
+                                        <div><i class="bi bi-bookmark-heart-fill fa-3x text-primary"></i></div>
+                                        <div class="ms-4">
+                                            <h4>Sports and Fitness</h4>
+                                            <p align="justify">Athlete Stress Monitoring: Stress levels during training and competition can impact an athlete’s performance. Wearable sensors can help coaches and athletes assess mental and physical stress levels, optimizing recovery periods and improving overall performance.</p>
+                                            <p align="justify">Fitness Apps: Integrating stress level monitoring into fitness apps can help users balance their workout routines with relaxation, promoting a healthier lifestyle.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="bg-primary rounded position-relative overflow-hidden">
+                            <img src="/static/img/f3.webp" class="img-fluid rounded w-100" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+        
+
+        
+                    
+        
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/static/lib/wow/wow.min.js"></script>
+        <script src="/static/lib/easing/easing.min.js"></script>
+        <script src="/static/lib/waypoints/waypoints.min.js"></script>
+        <script src="/static/lib/counterup/counterup.min.js"></script>
+        <script src="/static/lib/lightbox/js/lightbox.min.js"></script>
+        <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+        
+
+        <!-- Template Javascript -->
+        <script src="/static/js/main.js"></script>
+    </body>
+
+</html>

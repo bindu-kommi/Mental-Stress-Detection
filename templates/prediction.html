@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Stocker - Stock Market Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <!-- Custom Styles for Navbar -->
+    <style>
+        /* Beautiful Gradient Navbar */
+        .navbar {
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            padding: 15px 20px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            position: sticky;
+            top: 0;
+            width: 100%;
+        }
+
+        .navbar .navbar-brand {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .navbar-brand:hover {
+            color: #f39c12;
+        }
+
+        .navbar .nav-item .nav-link {
+            color: #f0f0f0;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 8px 20px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .navbar .nav-item .nav-link:before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background-color: #f39c12;
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-item .nav-link:hover:before {
+            width: 100%;
+        }
+
+        .navbar .nav-item .nav-link:hover {
+            color: #fff;
+        }
+
+        .navbar .navbar-toggler {
+            background-color: #f0f0f0;
+            border: none;
+            color: #34495e;
+        }
+
+        .navbar .nav-item .dropdown-menu {
+            background-color: #8e44ad;
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .nav-item .dropdown-menu .dropdown-item {
+            color: #fff;
+        }
+
+        .navbar.scrolled {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="{{ url_for('viewdata') }}" class="nav-link active">View Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('algo') }}" class="nav-link">Algorithm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('prediction') }}" class="nav-link">Prediction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('index') }}" class="nav-link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <div class="container mt-5">
+        <h2>Stress Level Prediction</h2>
+        <form method="POST" action="{{ url_for('prediction') }}">
+            <div class="mb-3">
+                <label for="X" class="form-label">X</label>
+                <input type="number" class="form-control" id="X" name="X" required min="-90" max="-1" step="any" oninput="this.value = this.value < -90 ? -90 : this.value > -1 ? -1 : this.value;">
+            </div>
+            <div class="mb-3">
+                <label for="Y" class="form-label">Y</label>
+                <input type="number" class="form-control" id="Y" name="Y" required min="-90" max="-1" step="any" oninput="this.value = this.value < -90 ? -90 : this.value > -1 ? -1 : this.value;">
+            </div>
+            <div class="mb-3">
+                <label for="Z" class="form-label">Z</label>
+                <input type="number" class="form-control" id="Z" name="Z" required min="-90" max="80" step="any" oninput="this.setCustomValidity(this.value >= 0 && this.value <= 80 || (this.value < 0 && this.value >= -90) ? '' : 'Please enter a value between 0 and 80 or -1 and -90.')">
+            </div>
+            <div class="mb-3">
+                <label for="EDA" class="form-label">EDA</label>
+                <input type="number" step="0.0000001" class="form-control" id="EDA" name="EDA" required>
+            </div>
+            <div class="mb-3">
+                <label for="HR" class="form-label">HR</label>
+                <input type="number" step="any" class="form-control" id="HR" name="HR" required>
+            </div>
+            <div class="mb-3">
+                <label for="TEMP" class="form-label">TEMP</label>
+                <input type="number" step="0.001" class="form-control" id="TEMP" name="TEMP" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict Stress Level</button>
+        </form>
+
+        <!-- Prediction Result Display -->
+        {% if prediction is not none %}
+        <div class="mt-4">
+            <h5>Prediction Result:</h5>
+            <p>Stress Level: {{ prediction }}</p>
+            <p>Advice: {{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+    <!-- Prediction Form End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Sticky Navbar Shrink on Scroll -->
+    <script>
+        $(window).on('scroll', function () {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
